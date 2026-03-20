@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ComplianceTracker.API/ComplianceTracker.API.csproj" />
+    <Project Path="src/ComplianceTracker.Application/ComplianceTracker.Application.csproj" />
+    <Project Path="src/ComplianceTracker.Domain/ComplianceTracker.Domain.csproj" />
+    <Project Path="src/ComplianceTracker.Infrastructure/ComplianceTracker.Infrastructure.csproj" />
+  </Folder>
+</Solution>
