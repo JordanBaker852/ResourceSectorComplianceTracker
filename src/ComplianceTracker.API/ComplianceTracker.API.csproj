@@ -10,4 +10,10 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ComplianceTracker.Application\ComplianceTracker.Application.csproj" />
+    <ProjectReference Include="..\ComplianceTracker.Domain\ComplianceTracker.Domain.csproj" />
+    <ProjectReference Include="..\ComplianceTracker.Infrastructure\ComplianceTracker.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
