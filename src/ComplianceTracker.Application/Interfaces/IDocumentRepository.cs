@@ -1,6 +1,6 @@
 using ComplianceTracker.Domain.Entites;
 
-namespace ComplianceTracker.Domain.Interfaces;
+namespace ComplianceTracker.Application.Interfaces;
 
 public interface IDocumentRepository
 {

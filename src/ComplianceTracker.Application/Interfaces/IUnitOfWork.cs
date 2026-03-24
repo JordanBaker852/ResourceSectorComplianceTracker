@@ -1,4 +1,4 @@
-namespace ComplianceTracker.Domain.Interfaces;
+namespace ComplianceTracker.Application.Interfaces;
 
 public interface IUnitOfWork
 {
