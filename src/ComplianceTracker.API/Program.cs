@@ -1,8 +1,18 @@
+using ComplianceTracker.Application;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddUserSecrets<Program>();
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+var mediatrLicenseKey = builder.Configuration.GetValue<string>("MediatRLicenseKey");
+
+ArgumentException.ThrowIfNullOrWhiteSpace(mediatrLicenseKey);
+
+builder.Services.AddApplication(mediatrLicenseKey);
 
 var app = builder.Build();
 

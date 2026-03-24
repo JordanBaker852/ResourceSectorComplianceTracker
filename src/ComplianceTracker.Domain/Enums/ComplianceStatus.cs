@@ -1,9 +1,8 @@
-namespace ComplianceTracker.Domain.Enums
+namespace ComplianceTracker.Domain.Enums;
+
+public enum ComplianceStatus
 {
-    public enum ComplianceStatus
-    {
-        Compliant,
-        ExpiringSoon,
-        NonCompliant
-    }
+    Compliant,
+    ExpiringSoon,
+    NonCompliant
 }

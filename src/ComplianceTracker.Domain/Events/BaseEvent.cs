@@ -1,7 +1,6 @@
-namespace ComplianceTracker.Domain.Events
+namespace ComplianceTracker.Domain.Events;
+
+public abstract class BaseEvent
 {
-    public abstract class BaseEvent
-    {
-        public DateTime OccurredAt { get; } = DateTime.UtcNow;
-    }
+    public DateTime OccurredAt { get; } = DateTime.UtcNow;
 }

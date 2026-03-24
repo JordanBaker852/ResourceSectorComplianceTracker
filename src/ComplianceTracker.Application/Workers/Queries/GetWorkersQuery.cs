@@ -1,0 +1,1 @@
+namespace ComplianceTracker.Application.Workers.Queries;

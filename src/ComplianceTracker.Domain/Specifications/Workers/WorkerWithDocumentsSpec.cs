@@ -1,13 +1,12 @@
 using ComplianceTracker.Domain.Entites;
 
-namespace ComplianceTracker.Domain.Specifications.Workers
+namespace ComplianceTracker.Domain.Specifications.Workers;
+
+public class WorkerWithDocumentsSpec : BaseSpecification<Worker>
 {
-    public class WorkerWithDocumentsSpec : BaseSpecification<Worker>
+    public WorkerWithDocumentsSpec(Guid id)
     {
-        public WorkerWithDocumentsSpec(Guid id)
-        {
-            AddCriteria(x => x.Id == id);
-            AddInclude(x => x.Documents);
-        }
+        AddCriteria(x => x.Id == id);
+        AddInclude(x => x.Documents);
     }
 }

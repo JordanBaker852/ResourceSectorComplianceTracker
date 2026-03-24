@@ -1,12 +1,11 @@
-namespace ComplianceTracker.Domain.Enums
+namespace ComplianceTracker.Domain.Enums;
+
+public enum State
 {
-    public enum State
-    {
-        WestenAustralia,
-        NewSouthWales,
-        Victoria,
-        Queensland,
-        SouthAustralia,
-        Tasmania
-    }
+    WestenAustralia,
+    NewSouthWales,
+    Victoria,
+    Queensland,
+    SouthAustralia,
+    Tasmania
 }

@@ -1,14 +1,13 @@
 using ComplianceTracker.Domain.Entites;
 using ComplianceTracker.Domain.Enums;
 
-namespace ComplianceTracker.Domain.Specifications.Documents
+namespace ComplianceTracker.Domain.Specifications.Documents;
+
+public class DocumentsByTypeSpec : BaseSpecification<ComplianceDocument>
 {
-    public class DocumentsByTypeSpec : BaseSpecification<ComplianceDocument>
+    public DocumentsByTypeSpec(DocumentType type)
     {
-        public DocumentsByTypeSpec(DocumentType type)
-        {
-            AddCriteria(x => x.DocumentType == type);
-            AddOrderBy(x => x.ExpiryDate);
-        }
+        AddCriteria(x => x.DocumentType == type);
+        AddOrderBy(x => x.ExpiryDate);
     }
 }

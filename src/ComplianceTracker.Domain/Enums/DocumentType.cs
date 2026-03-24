@@ -1,11 +1,10 @@
-namespace ComplianceTracker.Domain.Enums
+namespace ComplianceTracker.Domain.Enums;
+
+public enum DocumentType
 {
-    public enum DocumentType
-    {
-        FirstAid,
-        WhiteCard,
-        SiteInduction,
-        MinesSafetyInduction,
-        HighRiskWorkingLicense
-    }
+    FirstAid,
+    WhiteCard,
+    SiteInduction,
+    MinesSafetyInduction,
+    HighRiskWorkingLicense
 }

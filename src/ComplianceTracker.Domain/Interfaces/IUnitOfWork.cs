@@ -1,8 +1,7 @@
-namespace ComplianceTracker.Domain.Interfaces
+namespace ComplianceTracker.Domain.Interfaces;
+
+public interface IUnitOfWork
 {
-    public interface IUnitOfWork
-    {
-        IWorkerRepository Workers { get; }
-        IDocumentRepository Documents { get; }
-    }
+    IWorkerRepository Workers { get; }
+    IDocumentRepository Documents { get; }
 }

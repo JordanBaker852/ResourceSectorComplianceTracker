@@ -1,9 +1,8 @@
 using ComplianceTracker.Domain.Entites;
 
-namespace ComplianceTracker.Domain.Events
+namespace ComplianceTracker.Domain.Events;
+
+public class WorkerCreatedEvent(Worker worker) : BaseEvent
 {
-    public class WorkerCreatedEvent(Worker worker) : BaseEvent
-    {
-        public Worker Worker { get; } = worker;
-    }
+    public Worker Worker { get; } = worker;
 }

@@ -1,9 +1,8 @@
 using ComplianceTracker.Domain.Entites;
 
-namespace ComplianceTracker.Domain.Events
+namespace ComplianceTracker.Domain.Events;
+
+public class SiteCreatedEvent(Site site) : BaseEvent
 {
-    public class SiteCreatedEvent(Site site) : BaseEvent
-    {
-        public Site Site { get; } = site;
-    }
+    public Site Site { get; } = site;
 }

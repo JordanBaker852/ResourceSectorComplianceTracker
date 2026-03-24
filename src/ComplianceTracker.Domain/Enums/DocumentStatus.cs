@@ -1,9 +1,8 @@
-namespace ComplianceTracker.Domain.Enums
+namespace ComplianceTracker.Domain.Enums;
+
+public enum DocumentStatus
 {
-    public enum DocumentStatus
-    {
-        Valid,
-        ExpiringSoon,
-        Expired
-    }
+    Valid,
+    ExpiringSoon,
+    Expired
 }

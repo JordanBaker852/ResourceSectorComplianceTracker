@@ -1,9 +1,8 @@
 using ComplianceTracker.Domain.Entites;
 
-namespace ComplianceTracker.Domain.Events
+namespace ComplianceTracker.Domain.Events;
+
+public class DocumentUploadedEvent(ComplianceDocument document) : BaseEvent
 {
-    public class DocumentUploadedEvent(ComplianceDocument document) : BaseEvent
-    {
-        public ComplianceDocument Document { get; } = document;
-    }
+    public ComplianceDocument Document { get; } = document;
 }
