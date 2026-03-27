@@ -17,9 +17,9 @@ public record WorkerDto(
     uint TotalExpiredDocuments
 );
 
-public class GetWorkersQueryHandler(IWorkerRepository repo) : IRequestHandler<GetWorkersQuery, IQueryable<WorkerDto>>
+public class GetWorkersQueryHandler(IWorkerRepository repo) : IRequestHandler<GetWorkersQuery, IEnumerable<WorkerDto>>
 {
-    public async Task<IQueryable<WorkerDto>> Handle(GetWorkersQuery request, CancellationToken ct)
+    public async Task<IEnumerable<WorkerDto>> Handle(GetWorkersQuery request, CancellationToken ct)
     {
         var workers = await repo.GetAllActiveAsync();
 

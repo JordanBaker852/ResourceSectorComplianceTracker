@@ -1,0 +1,45 @@
+using ComplianceTracker.Application.Interfaces;
+using ComplianceTracker.Domain.Entites;
+using Microsoft.EntityFrameworkCore;
+
+namespace ComplianceTracker.Infrastructure.Persistance.Repositories;
+
+public class WorkerRepository(ApplicationDbContext context) : IWorkerRepository
+{
+    public Task AddAsync(CancellationToken ct = default)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task DeleteAsync(CancellationToken ct = default)
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task<IEnumerable<Worker>> GetAllActiveAsync(CancellationToken ct = default)
+    {
+        return await context.Workers.Where(x => x.IsActive)
+            .AsNoTracking()
+            .ToListAsync();
+    }
+
+    public Task<Worker?> GetByIdAsync(Guid id, CancellationToken ct = default)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<Worker>> GetBySiteIdAsync(Guid siteId, CancellationToken ct = default)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<Worker?> GetWithDocumentsByIdAsync(Guid id, CancellationToken ct = default)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Update()
+    {
+        throw new NotImplementedException();
+    }
+}

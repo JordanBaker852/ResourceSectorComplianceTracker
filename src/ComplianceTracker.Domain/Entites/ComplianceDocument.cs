@@ -7,10 +7,10 @@ public class ComplianceDocument : BaseAuditableEntity
 {
     public Guid WorkerId { get; private set; }
     public Worker Worker { get; private set; } = null!;
-    public string Name { get; set; } = string.Empty;
-    public DocumentType DocumentType { get; set; }
-    public DateTime IssueDate { get; set; }
-    public DateTime ExpiryDate { get; set; }
+    public string Name { get; private set; } = string.Empty;
+    public DocumentType DocumentType { get; private set; }
+    public DateTime IssueDate { get; private set; }
+    public DateTime ExpiryDate { get; private set; }
 
     public DocumentStatus GetStatus(uint siteExpiringThresholdDays)
     {

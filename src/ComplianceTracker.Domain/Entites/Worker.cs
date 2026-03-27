@@ -5,10 +5,10 @@ namespace ComplianceTracker.Domain.Entites;
 
 public class Worker : BaseAuditableEntity
 {
-    public string FirstName { get; set; } = string.Empty;
-    public string Surname { get; set; } = string.Empty;
-    public string JobTitle { get; set; } = string.Empty;
-    public bool IsActive { get; set; } = true;
+    public string FirstName { get; private set; } = string.Empty;
+    public string Surname { get; private set; } = string.Empty;
+    public string JobTitle { get; private set; } = string.Empty;
+    public bool IsActive { get; private set; } = true;
     public Guid SiteId { get; private set; }
     public Site Site { get; private set; } = null!;
     public string FullName => $"{FirstName} {Surname}";
