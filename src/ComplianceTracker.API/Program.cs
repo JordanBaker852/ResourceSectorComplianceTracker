@@ -1,5 +1,6 @@
 using ComplianceTracker.Application;
 using ComplianceTracker.Infrastructure;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,12 +22,15 @@ ArgumentException.ThrowIfNullOrWhiteSpace(mediatrLicenseKey);
 
 builder.Services.AddApplication(mediatrLicenseKey);
 
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
@@ -49,6 +53,8 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 })
 .WithName("GetWeatherForecast");
+
+app.MapControllers();
 
 app.Run();
 

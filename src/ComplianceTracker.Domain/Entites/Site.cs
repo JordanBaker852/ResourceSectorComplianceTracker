@@ -10,6 +10,9 @@ public class Site : BaseAuditableEntity
     public Address Address { get; private set; } = null!;
     private Site () {}
 
+    private readonly List<Worker> _workers = [];
+    public IReadOnlyCollection<Worker> Workers => _workers.AsReadOnly();
+
     public static Site Create(string name, string street, string suburb, State state, string postCode)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(name);

@@ -19,6 +19,7 @@ public class WorkerRepository(ApplicationDbContext context) : IWorkerRepository
     public async Task<IEnumerable<Worker>> GetAllActiveAsync(CancellationToken ct = default)
     {
         return await context.Workers.Where(x => x.IsActive)
+            .Include(x => x.Site)
             .AsNoTracking()
             .ToListAsync();
     }

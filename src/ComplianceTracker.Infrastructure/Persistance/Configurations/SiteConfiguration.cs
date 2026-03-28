@@ -1,5 +1,4 @@
 using ComplianceTracker.Domain.Entites;
-using ComplianceTracker.Domain.Entites.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

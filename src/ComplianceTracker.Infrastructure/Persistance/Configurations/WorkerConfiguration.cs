@@ -17,9 +17,14 @@ public class WorkerConfiguration : IEntityTypeConfiguration<Worker>
         builder.Property(x => x.CreatedBy).HasMaxLength(61).IsRequired();
         builder.Property(x => x.UpdatedBy).HasMaxLength(61).IsRequired();
 
-        builder.HasMany(w => w.Documents)
-            .WithOne(d => d.Worker)
-            .HasForeignKey(d => d.WorkerId)
+        builder.HasOne(x => x.Site)
+            .WithMany(x => x.Workers)
+            .HasForeignKey(x => x.SiteId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder.HasMany(x => x.Documents)
+            .WithOne(x => x.Worker)
+            .HasForeignKey(x => x.WorkerId)
             .OnDelete(DeleteBehavior.Cascade);
 
         builder.Ignore(x => x.DomainEvents);
