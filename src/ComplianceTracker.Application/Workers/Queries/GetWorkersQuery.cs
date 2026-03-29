@@ -5,15 +5,15 @@ using MediatR;
 
 namespace ComplianceTracker.Application.Workers.Queries;
 
-public record GetWorkersQuery() : IRequest<IEnumerable<WorkerDto>>;
+public record GetWorkersQuery() : IRequest<IEnumerable<WorkerSummaryDto>>;
 
-public class GetWorkersQueryHandler(IWorkerRepository repo) : IRequestHandler<GetWorkersQuery, IEnumerable<WorkerDto>>
+public class GetWorkersQueryHandler(IWorkerRepository repo) : IRequestHandler<GetWorkersQuery, IEnumerable<WorkerSummaryDto>>
 {
-    public async Task<IEnumerable<WorkerDto>> Handle(GetWorkersQuery request, CancellationToken ct)
+    public async Task<IEnumerable<WorkerSummaryDto>> Handle(GetWorkersQuery request, CancellationToken ct)
     {
         var workers = await repo.GetAllActiveAsync();
 
-        return workers.Select(x => new WorkerDto(
+        return workers.Select(x => new WorkerSummaryDto(
         
             Id:                 x.Id,
             FullName:           x.FullName,

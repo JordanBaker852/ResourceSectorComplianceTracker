@@ -6,9 +6,10 @@ namespace ComplianceTracker.Infrastructure.Persistance.Repositories;
 
 public class WorkerRepository(ApplicationDbContext context) : IWorkerRepository
 {
-    public Task AddAsync(CancellationToken ct = default)
+    public async Task AddAsync(Worker worker, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        context.Workers.Add(worker);
+        await context.SaveChangesAsync(ct);
     }
 
     public Task DeleteAsync(CancellationToken ct = default)
@@ -21,7 +22,7 @@ public class WorkerRepository(ApplicationDbContext context) : IWorkerRepository
         return await context.Workers.Where(x => x.IsActive)
             .Include(x => x.Site)
             .AsNoTracking()
-            .ToListAsync();
+            .ToListAsync(ct);
     }
 
     public Task<Worker?> GetByIdAsync(Guid id, CancellationToken ct = default)

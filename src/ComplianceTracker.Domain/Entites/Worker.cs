@@ -29,14 +29,17 @@ public class Worker : BaseAuditableEntity
 
     private Worker() {}
 
-    public static Worker Create(string firstName, string surname, string jobTitle)
+    public static Worker Create(string firstName, string surname, string jobTitle, Guid siteId)
     {
         var worker = new Worker
         {
             Id = Guid.NewGuid(),
             FirstName = firstName,
             Surname = surname,
-            JobTitle = jobTitle
+            JobTitle = jobTitle,
+            SiteId = siteId,
+            CreatedBy = "User",
+            CreatedOn = DateTime.UtcNow
         };
 
         worker.AddDomainEvent(new WorkerCreatedEvent(worker));

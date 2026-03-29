@@ -1,5 +1,5 @@
 namespace ComplianceTracker.Application.DTOs;
-public record WorkerDto(
+public record WorkerSummaryDto(
     Guid Id, 
     string FullName,
     SiteDto Site, 

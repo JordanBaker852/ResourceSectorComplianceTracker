@@ -12,7 +12,7 @@ public class SiteConfiguration : IEntityTypeConfiguration<Site>
         
         builder.Property(x => x.Name).HasMaxLength(255).IsRequired();
         builder.Property(x => x.CreatedBy).HasMaxLength(61).IsRequired();
-        builder.Property(x => x.UpdatedBy).HasMaxLength(61).IsRequired();
+        builder.Property(x => x.UpdatedBy).HasMaxLength(61);
 
         builder.OwnsOne(x => x.Address, address =>
         {

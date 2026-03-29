@@ -16,7 +16,7 @@ public class ComplianceDocumentConfiguration : IEntityTypeConfiguration<Complian
         builder.Property(x => x.IssueDate).IsRequired();
         builder.Property(x => x.ExpiryDate).IsRequired();
         builder.Property(x => x.CreatedBy).HasMaxLength(61).IsRequired();
-        builder.Property(x => x.UpdatedBy).HasMaxLength(61).IsRequired();
+        builder.Property(x => x.UpdatedBy).HasMaxLength(61);
         
         builder.Ignore(x => x.DomainEvents);
     }

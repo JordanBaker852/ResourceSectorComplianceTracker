@@ -15,7 +15,7 @@ public class WorkerConfiguration : IEntityTypeConfiguration<Worker>
         builder.Property(x => x.JobTitle).HasMaxLength(60).IsRequired();
         builder.Property(x => x.SiteId).IsRequired();
         builder.Property(x => x.CreatedBy).HasMaxLength(61).IsRequired();
-        builder.Property(x => x.UpdatedBy).HasMaxLength(61).IsRequired();
+        builder.Property(x => x.UpdatedBy).HasMaxLength(61);
 
         builder.HasOne(x => x.Site)
             .WithMany(x => x.Workers)
