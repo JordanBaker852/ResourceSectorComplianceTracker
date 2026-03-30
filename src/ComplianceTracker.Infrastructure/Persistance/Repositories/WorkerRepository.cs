@@ -25,9 +25,13 @@ public class WorkerRepository(ApplicationDbContext context) : IWorkerRepository
             .ToListAsync(ct);
     }
 
-    public Task<Worker?> GetByIdAsync(Guid id, CancellationToken ct = default)
+    public async Task<Worker?> GetByIdAsync(Guid id, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+       return await context.Workers
+            .Include(x => x.Site)
+            .Include(x => x.Documents)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(x => x.Id == id, ct);
     }
 
     public Task<IEnumerable<Worker>> GetBySiteIdAsync(Guid siteId, CancellationToken ct = default)

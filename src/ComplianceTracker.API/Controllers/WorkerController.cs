@@ -30,5 +30,14 @@ namespace ComplianceTracker.API.Controllers
 
             return Ok(response);
         }
+
+        [HttpGet]
+        [Route("{Id}")]
+        public async Task<ActionResult<WorkerDetailsDto>> GetWorkerById(Guid id)
+        {
+            var response = await mediatr.Send(new GetWorkerByIdQuery(id));
+
+            return Ok(response);
+        }
     }
 }

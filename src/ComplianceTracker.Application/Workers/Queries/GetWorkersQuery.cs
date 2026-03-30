@@ -11,10 +11,10 @@ public class GetWorkersQueryHandler(IWorkerRepository repo) : IRequestHandler<Ge
 {
     public async Task<IEnumerable<WorkerSummaryDto>> Handle(GetWorkersQuery request, CancellationToken ct)
     {
-        var workers = await repo.GetAllActiveAsync();
+        var workers = await repo.GetAllActiveAsync(ct);
 
-        return workers.Select(x => new WorkerSummaryDto(
-        
+        return workers.Select(x => new WorkerSummaryDto
+        (
             Id:                 x.Id,
             FullName:           x.FullName,
             Site:               new SiteDto(x.Site.Id, x.Site.Name),
