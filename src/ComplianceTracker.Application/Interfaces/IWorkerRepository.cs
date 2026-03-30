@@ -10,5 +10,5 @@ public interface IWorkerRepository
     Task<IEnumerable<Worker>> GetAllActiveAsync(CancellationToken ct = default);
     Task AddAsync(Worker worker, CancellationToken ct = default);
     void Update();
-    Task DeleteAsync(CancellationToken ct = default);
+    Task DeleteAsync(Worker worker, CancellationToken ct = default);
 }

@@ -12,9 +12,10 @@ public class WorkerRepository(ApplicationDbContext context) : IWorkerRepository
         await context.SaveChangesAsync(ct);
     }
 
-    public Task DeleteAsync(CancellationToken ct = default)
+    public async Task DeleteAsync(Worker worker, CancellationToken ct = default)
     {
-        throw new NotImplementedException();
+        context.Workers.Update(worker);
+        await context.SaveChangesAsync(ct);
     }
 
     public async Task<IEnumerable<Worker>> GetAllActiveAsync(CancellationToken ct = default)

@@ -27,6 +27,8 @@ public class Worker : BaseAuditableEntity
         return ComplianceStatus.Compliant;
     }
 
+    public void Deactivate() => IsActive = false;
+
     private Worker() {}
 
     public static Worker Create(string firstName, string surname, string jobTitle, Guid siteId)

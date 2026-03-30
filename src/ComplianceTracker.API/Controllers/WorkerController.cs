@@ -28,7 +28,7 @@ namespace ComplianceTracker.API.Controllers
                 request.SiteId
             ));
 
-            return Ok(response);
+            return CreatedAtAction(nameof(GetWorkerById), response);
         }
 
         [HttpGet]
@@ -38,6 +38,14 @@ namespace ComplianceTracker.API.Controllers
             var response = await mediatr.Send(new GetWorkerByIdQuery(id));
 
             return Ok(response);
+        }
+
+        [HttpDelete]
+        [Route("{Id}")]
+        public async Task<IActionResult> DeleteWorker(Guid id)
+        {
+            await mediatr.Send(new DeleteWorkerCommand(id));
+            return NoContent();
         }
     }
 }

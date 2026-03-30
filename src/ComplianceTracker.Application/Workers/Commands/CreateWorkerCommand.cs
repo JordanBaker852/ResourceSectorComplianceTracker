@@ -25,10 +25,10 @@ public class CreateWorkerCommandValidator : AbstractValidator<CreateWorkerComman
 
 public class CreateWorkerCommandHandler(IWorkerRepository repo) : IRequestHandler<CreateWorkerCommand, WorkerCreatedDto>
 {
-    public async Task<WorkerCreatedDto> Handle(CreateWorkerCommand request, CancellationToken cancellationToken)
+    public async Task<WorkerCreatedDto> Handle(CreateWorkerCommand request, CancellationToken ct)
     {
         var worker = Worker.Create(request.FirstName, request.Surname, request.JobTitle, request.siteId);
-        await repo.AddAsync(worker, cancellationToken);
+        await repo.AddAsync(worker, ct);
         return new WorkerCreatedDto(worker.Id, worker.FullName, new SiteDto(worker.SiteId, ""));
     }
 }
